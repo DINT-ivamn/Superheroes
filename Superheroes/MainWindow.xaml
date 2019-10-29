@@ -5,11 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Superheroes"
         mc:Ignorable="d"
-        Title="Superheroes" Height="450" Width="800" Icon="128.ico">
+        Title="Superheroes" Height="450" Width="800" Icon="128.ico" MinWidth="800" MinHeight="450">
+    
+    <!-- Resources -->
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="10 5 10 5"/>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Margin" Value="10 5 10 5"/>
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Margin" Value="10 5 10 5"/>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="10 5 10 5"/>
+        </Style>
+        <local:Configuracion x:Key="config" AjusteImagen="Fill" Fondo="Aqua"/>
+        <local:BoolConverter x:Key="Converter"/>
+    </Window.Resources>
     
     <!-- Layout -->
     <StackPanel Orientation="Horizontal">
-        <DockPanel LastChildFill="True">
+        <DockPanel LastChildFill="True" x:Name="DatosEstaticosDockPanel">
             <Grid DockPanel.Dock="Bottom">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -17,26 +35,27 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Nombre:" Grid.Row="0" Grid.Column="0"/>
-                <TextBlock x:Name="NombreTextBlock" Grid.Row="0" Grid.Column="1"/>
+                <TextBlock x:Name="NombreTextBlock" Grid.Row="0" Grid.Column="1" Text="{Binding Path=Nombre}"/>
                 <TextBlock Text="Enemigo:" Grid.Row="1" Grid.Column="0"/>
-                <TextBlock x:Name="EnemigoTextBlock" Grid.Row="1" Grid.Column="1"/>
+                <TextBlock x:Name="EnemigoTextBlock" Grid.Row="1" Grid.Column="1" Text="{Binding Path=Enemigo}"/>
                 <TextBlock Text="¿Vengador?:" Grid.Row="2" Grid.Column="0"/>
-                <TextBlock x:Name="VengadorTextBlock" Grid.Row="2" Grid.Column="1"/>
+                <TextBlock x:Name="VengadorTextBlock" Grid.Row="2" Grid.Column="1" Text="{Binding Path=Vengador, Converter={StaticResource Converter}}"/>
             </Grid>
-            <Image Source="C:\Users\alumno\Pictures\jeje.png" Stretch="Fill"/>
+            <Image Source="{Binding Path=Foto}" Stretch="Fill"/>
         </DockPanel>
-        <StackPanel Orientation="Vertical">
+        <StackPanel Width="200" x:Name="EditarStackPanel">
             <TextBlock Text="Nombre"/>
-            <TextBox x:Name="NombreTextBox"/>
+            <TextBox x:Name="NombreTextBox" Text="{Binding Path=Nombre}"/>
             <TextBlock Text="Enemigo"/>
-            <TextBox x:Name="EnemigoTextBox"/>
+            <TextBox x:Name="EnemigoTextBox" Text="{Binding Path=Enemigo}"/>
             <TextBlock Text="Foto"/>
-            <TextBox x:Name="FotoTextBox"/>
-            <CheckBox Content="¿Vengador?"/>
+            <TextBox x:Name="FotoTextBox" Text="{Binding Path=Foto}"/>
+            <CheckBox Content="¿Vengador?" IsChecked="{Binding Path=Vengador}"/>
+            <Button Content="Editar" x:Name="EditarButton" Click="EditarButton_Click"/>
         </StackPanel>
     </StackPanel>
     

@@ -17,9 +17,25 @@ namespace Superheroes
 {
     public partial class MainWindow : Window
     {
+        Superheroe Super { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            Superheroe superheroe = new Superheroe()
+            {
+                Nombre = "Tomioka",
+                Enemigo = "Muzan",
+                Foto = @"https://i.imgur.com/UnAQciW.jpg",
+                Vengador = false
+            };
+            DatosEstaticosDockPanel.DataContext = superheroe;
+            Super = superheroe;
+        }
+
+        private void EditarButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditarStackPanel.DataContext = Super;
         }
     }
 }
