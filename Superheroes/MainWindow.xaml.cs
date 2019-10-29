@@ -22,15 +22,10 @@ namespace Superheroes
         public MainWindow()
         {
             InitializeComponent();
-            Superheroe superheroe = new Superheroe()
-            {
-                Nombre = "Tomioka",
-                Enemigo = "Muzan",
-                Foto = @"https://i.imgur.com/UnAQciW.jpg",
-                Vengador = false
-            };
+            Superheroe superheroe = Superheroe.GetSample();
             DatosEstaticosDockPanel.DataContext = superheroe;
             Super = superheroe;
+            DataContext = Resources["config"];
         }
 
         private void EditarButton_Click(object sender, RoutedEventArgs e)

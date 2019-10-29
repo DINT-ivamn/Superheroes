@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Superheroes"
         mc:Ignorable="d"
-        Title="Superheroes" Height="450" Width="800" Icon="128.ico" MinWidth="800" MinHeight="450">
+        Title="Superheroes" Height="450" Width="800" Icon="128.ico" MinWidth="800" MinHeight="450"
+        Background="{Binding Path=Fondo}">
     
     <!-- Resources -->
     <Window.Resources>
@@ -21,7 +22,7 @@
         <Style TargetType="{x:Type Button}">
             <Setter Property="Margin" Value="10 5 10 5"/>
         </Style>
-        <local:Configuracion x:Key="config" AjusteImagen="Fill" Fondo="Aqua"/>
+        <local:Configuracion x:Key="config" AjusteImagen="Fill" Fondo="#c9f0ff"/>
         <local:BoolConverter x:Key="Converter"/>
     </Window.Resources>
     
