@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Superheroes"
         mc:Ignorable="d"
-        Title="Superheroes" Height="450" Width="800" Icon="128.ico" MinWidth="800" MinHeight="450"
+        Title="Superheroes" Height="450" Width="800" Icon="128.ico" MinWidth="700" MinHeight="350"
         Background="{Binding Path=Fondo}">
     
     <!-- Resources -->
@@ -46,7 +46,7 @@
                 <TextBlock Text="¿Vengador?:" Grid.Row="2" Grid.Column="0"/>
                 <TextBlock x:Name="VengadorTextBlock" Grid.Row="2" Grid.Column="1" Text="{Binding Path=Vengador, Converter={StaticResource Converter}}"/>
             </Grid>
-            <Image Source="{Binding Path=Foto}" Stretch="Fill"/>
+            <Image Source="{Binding Path=Foto}" Stretch="{Binding Source={StaticResource config}, Path=AjusteImagen}"/>
         </DockPanel>
         <StackPanel Width="200" x:Name="EditarStackPanel">
             <TextBlock Text="Nombre"/>
