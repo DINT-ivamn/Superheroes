@@ -50,11 +50,11 @@
         </DockPanel>
         <StackPanel Width="200" x:Name="EditarStackPanel">
             <TextBlock Text="Nombre"/>
-            <TextBox x:Name="NombreTextBox" Text="{Binding Path=Nombre}"/>
+            <TextBox x:Name="NombreTextBox" Text="{Binding Path=Nombre, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="Enemigo"/>
-            <TextBox x:Name="EnemigoTextBox" Text="{Binding Path=Enemigo}"/>
+            <TextBox x:Name="EnemigoTextBox" Text="{Binding Path=Enemigo, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="Foto"/>
-            <TextBox x:Name="FotoTextBox" Text="{Binding Path=Foto}"/>
+            <TextBox x:Name="FotoTextBox" Text="{Binding Path=Foto, UpdateSourceTrigger=PropertyChanged}"/>
             <CheckBox Content="¿Vengador?" IsChecked="{Binding Path=Vengador}"/>
             <Button Content="Editar" x:Name="EditarButton" Click="EditarButton_Click"/>
         </StackPanel>

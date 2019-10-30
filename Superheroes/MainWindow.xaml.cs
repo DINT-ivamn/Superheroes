@@ -22,9 +22,8 @@ namespace Superheroes
         public MainWindow()
         {
             InitializeComponent();
-            Superheroe superheroe = Superheroe.GetSample();
-            DatosEstaticosDockPanel.DataContext = superheroe;
-            Super = superheroe;
+            Super = Superheroe.GetSample();
+            DatosEstaticosDockPanel.DataContext = Super;
             DataContext = Resources["config"];
         }
 
